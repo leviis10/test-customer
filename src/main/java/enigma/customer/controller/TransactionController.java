@@ -4,6 +4,7 @@ import enigma.customer.dto.TransactionDTO;
 import enigma.customer.model.Transaction;
 import enigma.customer.service.TransactionService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,6 +16,7 @@ public class TransactionController {
     private final TransactionService transactionService;
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public Transaction create(
             @RequestBody TransactionDTO transactionDTO
     ) {
